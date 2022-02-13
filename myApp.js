@@ -11,12 +11,20 @@ app.get('/' ,function(req, res){
   res.sendFile(__dirname + '/views/'+'index.html')
 });
 
-app.use(function(req,res,next){
-  console.log('incoming req '+req.method +' '+ req.path+' '+'-'+' '+req.ip);
-  next();
+app.get('/:word/echo',function(req,res){
+  res.send({'echo':req.params.word})
 })
 
-// app.use('/public',express.static(__dirname+'/public'));
+// app.get('/:'+word+'/echo',)
+
+// app.get('/now', function(req, res, next) {
+//   req.time = new Date().toString();
+//   next();
+// }, function(req, res) {
+//   console.log(res.send({time: req.time}));
+// });
+
+app.use('/public',express.static(__dirname+'/public'));
 
 
 // app.get('/json', function(req, res){
