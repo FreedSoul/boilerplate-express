@@ -10,7 +10,7 @@ console.log("hello world")
 
 //body-parser middleware
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json())
+// app.use(bodyParser.json())
 
 
 
@@ -18,13 +18,13 @@ app.get('/' ,function(req, res){
   res.sendFile(__dirname + '/views/'+'index.html')
 });
 
-// app.route('/name')
-//     .get(function(req, res){
-//       console.log(JSON.stringify(req.query))
-//     }).post(function(req,res){
-//       res.json({name: req.query.first+' '+req.query.last})
-//     })
-
+app.route('/name')
+    .get(function(req, res){
+      console.log(JSON.stringify(req.body.first+' '+req.body.last))
+    }).post(function(req,res){
+      res.json({name: req.body.first+' '+req.body.last})
+    })
+// req.query.first+' '+req.query.last
 // app.get('/:word/echo',function(req,res){
 //   res.send({'echo':req.params.word})
 // })
