@@ -2,7 +2,10 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 
+
 console.log("hello world")
+
+
 
 // app.get('/',function(req, res){
 //   res.send('Hello Express')
@@ -11,7 +14,6 @@ console.log("hello world")
 //body-parser middleware
 app.use(bodyParser.urlencoded({extended: false}));
 // app.use(bodyParser.json())
-
 
 
 app.get('/' ,function(req, res){
