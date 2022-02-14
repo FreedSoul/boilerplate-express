@@ -11,9 +11,16 @@ app.get('/' ,function(req, res){
   res.sendFile(__dirname + '/views/'+'index.html')
 });
 
-app.get('/:word/echo',function(req,res){
-  res.send({'echo':req.params.word})
-})
+app.route('/name')
+    .get(function(req, res){
+      console.log(JSON.stringify(req.query))
+    }).post(function(req,res){
+      res.json({name: req.query.first+' '+req.query.last})
+    })
+
+// app.get('/:word/echo',function(req,res){
+//   res.send({'echo':req.params.word})
+// })
 
 // app.get('/:'+word+'/echo',)
 
